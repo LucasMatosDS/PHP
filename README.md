@@ -1,2 +1,2 @@
-# trabalhos-PHP
-trabalhos desenvolvidos em php + mysql para exercitar o seu conhecimento!
+# Projetos-PHP
+Projetos desenvolvidos em php + mysql para exercitar o seu conhecimento!
