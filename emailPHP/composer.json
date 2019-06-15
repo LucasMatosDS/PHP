@@ -1,0 +1,17 @@
+{
+    "name": "lucas/email",
+    "description": "Projeto para efetuar envio de email",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lucas Matos",
+            "email": "lucasmatoss2000@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "twbs/bootstrap": "^3.4@dev",
+        "components/jquery": "dev-master"
+    }
+}
