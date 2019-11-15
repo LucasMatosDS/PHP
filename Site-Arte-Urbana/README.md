@@ -1,2 +1,0 @@
-# ProjetoFinaldePHP
-Projeto GraffRS
