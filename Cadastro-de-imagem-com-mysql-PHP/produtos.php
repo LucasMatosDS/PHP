@@ -36,18 +36,17 @@
 			 foreach($dadosProduto as $valor){
 			
 			?>
-<a href="exibir-produtos.php?id=<?php echo $valor['id_prod'];?>" class="btn btn-dark">visualizar</a>
 <div class="card">	
 <div class="embed-responsive embed-responsive-16by9
 ">
-  <img src="img/<?php echo $valor['foto_capa']; ?>">
+   <img src="img/<?php echo $valor['foto_capa'];?>" class="embed-responsive-item" alt="Imagem Indisponível">
 </div>   
   <div class="card-body">
     <h5 class="card-title"><strong><?php echo $valor['nome_prod'];?></strong></h5>
     <hr>
     <p class="card-text"><?php echo $valor['descricao'];?></p>    
-    <a href="img/<?php echo $valor['foto_capa']; ?>" class="btn btn-warning mb-2">visualizar imagens</a>
-    <a  class="btn btn-primary" id="download" download="<?php echo md5($valor['foto_capa'].mt_rand(1,999));?>" download>Download</a>
+    <a href="img/<?php echo $valor['foto_capa'];?>" class="btn btn-warning mb-2">visualizar imagens</a>
+    <a class="btn btn-primary" id="download" onclick="baixarImagem()" download>Download</a>
   </div>
 </div>
 			<?php
@@ -67,7 +66,8 @@
 
 		 if(img == true){		 			 			 	
 		 $('a#download').attr({target: '_blank', 
-                    href  : './img/<?php echo $valor['foto_capa'];?>'});                    		 
+                    href  : './img/<?php echo $valor['foto_capa'];?>'});
+                    window.location.href = 'produtos.php';                    		 
                     
     			
 		 }else if(img != true){

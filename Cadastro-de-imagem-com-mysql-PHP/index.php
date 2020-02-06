@@ -15,14 +15,14 @@
     <form method="POST" enctype="multipart/form-data" class="container col-md-4 mt-3 formulario">
   <div class="form-group">
     <label for="exampleFormControlInput1">Titulo:</label>
-    <input type="text" class="form-control" name="nome" id="exampleFormControlInput1" placeholder="Informe um titulo">
+    <input type="text" class="form-control" name="nome" id="exampleFormControlInput1" placeholder="Informe um titulo" autocomplete="off">
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Descrição:</label>
     <textarea class="form-control mb-2" name="descricao" id="exampleFormControlTextarea1" rows="10" placeholder="Informe a descrição do produto"></textarea>    
   </div>
   <div class="form-group">    
-    <input type="file" class="form-control-file" name="foto" id="exampleFormControlFile1" accept=".jpg,.png,.mp4,.mkv">        
+    <input type="file" class="form-control-file" name="foto" id="exampleFormControlFile1" accept=".jpg,.png,.jpeg">        
   </div>
   <div class="form-group">
     <input type="submit" value="enviar" class="btn btn-success border border-dark">
@@ -40,6 +40,8 @@
 
         if(isset($_FILES['foto'])){
 
+            //necessário para upload de multiplas imagens.
+            //OBS: adicionar a tag multiple no input file para funcionar.
           //for($i = 0; $i < count($_FILES['foto']['name']); $i++){
 
               //salvando dentro da pasta img.

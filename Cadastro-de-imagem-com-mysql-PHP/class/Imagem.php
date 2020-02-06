@@ -39,7 +39,7 @@ class Imagem{
 		 	$nome_foto = $fotos[$i];
 
 		$cmd = $this->pdo->prepare('insert into imagens(nome_imagem, fk_id_prod) values(?,?)');
-		$cmd->bindValue(1, $nome);
+		$cmd->bindValue(1, $nome_foto);
 		$cmd->bindValue(2, $id_Prod);
 		$cmd->execute();
 		  }
@@ -48,7 +48,7 @@ class Imagem{
 
 	public function buscarProdutos(){
 
-		$cmd = $this->pdo->prepare('select *,(select nome_imagem from imagens where fk_id_prod = id_prod limit 01) as foto_capa from produtos');			
+		$cmd = $this->pdo->prepare('select *,(select nome_imagem from imagens where fk_id_prod = id_prod limit 1) as foto_capa from produtos');			
 		 	$cmd->execute();
 
 		 if($cmd->rowCount() > 0){
@@ -58,46 +58,6 @@ class Imagem{
 		 }
 
 		 return $dados;
-
-		
-
-	}
-
-	public function buscarProdutoPorId($id){
-
-			$cmd = $this->pdo->prepare('select * from produtos where id_prod = :id');
-			$cmd->bindValue(":id", $id);		
-			$cmd->execute();
-
-			if($cmd->rowCount() > 0){
-
-				$dados = $cmd->fetch(PDO::FETCH_ASSOC);
-
-			}else{
-
-				$dados = array();
-			}
-
-			return $dados;
-	}
-
-	public function buscarImagemPorId($id){
-
-		   $cmd = $this->pdo->prepare('select nome_imagem from imagens where fk_id_prod = :id');
-		   $cmd->bindValue(":id", $id);
-		   $cmd->execute();
-
-		    if($cmd->rowCount() > 0){
-
-		    	 $dados = $cmd->fetch(PDO::FETCH_ASSOC);
-
-		    }else{
-
-		    	$dados = array();
-
-		    }
-
-		    return $dados;
 	}
 
 	public function deletarTodosOsRegistros(){
